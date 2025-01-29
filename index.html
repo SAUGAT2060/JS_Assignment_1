@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 1</title>
+  </head>
+  <body>
+    <script>
+      let numOfCourses = prompt("How many courses did you finish?", "0");
+      numOfCourses = parseInt(numOfCourses);
+
+      if (isNaN(numOfCourses)) {
+        document.write(`Invalid input.`);
+      } else {
+        let courseMark = [];
+        let totalOfCourses = 0;
+
+        for (let index = 0; index < numOfCourses; index++) {
+          let marks = prompt(`Enter your marks for course ${index + 1}`);
+          marks = parseFloat(marks);
+          courseMark.push(marks);
+          totalOfCourses += marks;
+          document.write(`${marks}<br>`);
+        }
+
+        let average = totalOfCourses / numOfCourses;
+        average = Math.round(average * 100) / 100;
+
+        if (average >= 90 && average <= 100) {
+          document.write(`Your final average is ${average}. Your grade is A+`);
+        } else if (average >= 80 && average < 90) {
+          document.write(`Your final average is ${average}. Your grade is B`);
+        } else if (average >= 70 && average < 80) {
+          document.write(`Your final average is ${average}. Your grade is C`);
+        } else if (average >= 60 && average < 70) {
+          document.write(`Your final average is ${average}. Your grade is D`);
+        } else if (average < 60) {
+          document.write(`Your final average is ${average}. Your grade is F`);
+        } else {
+          document.write(
+            `Sorry, all the marks have to be from minimum 0 to maximum 100!`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
